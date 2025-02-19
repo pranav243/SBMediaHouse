@@ -111,9 +111,13 @@
   width: 100%;
   background-image: url('/image.png');
   background-repeat: no-repeat;
-  background-size: 100%;
+  /* background-size: 100%; */
+  background-size: cover;
   background-position: center;
-  height: 535px;
+  /* height: 535px; */
+  /* height: 520%; */
+  min-height: 60vh;
+  display: flex;
   margin: 0;
   align-items: center;
   justify-content: center;
@@ -127,6 +131,7 @@
   padding: 40px 20px;
   text-align: center;
   background-color: white;
+  height: 70%;
 }
 
 .infocard-title {
@@ -447,6 +452,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .carousel {
@@ -456,6 +462,8 @@
   justify-content: center;
   /* width: 100%; */
   width: 100%;
+  box-sizing: border-box;
+
 
 }
 
@@ -493,6 +501,7 @@
   text-align: left;
   /* width: 1216px; */
   width: 100%;
+  box-sizing: border-box;
 }
 
 .slide-title {
@@ -576,6 +585,7 @@
   width: 90%;
   margin: 2% auto;
   padding: 40px 80px 140px 80px;
+
   background-color: rgba(242, 242, 242, 0.8);
 
   /* Ensure it fully wraps the grid */
@@ -597,7 +607,7 @@
 .services-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   column-gap: 20px; /* Space between columns */
   row-gap: 160px;
 }
@@ -605,8 +615,10 @@
 /* Card styling */
 .card {
   position: relative;
-  width: 295px;
-  height: 323px;
+  /* width: 295px; */
+  /* height: 323px; */
+  width: 90%;
+  height: 30%;
   /* overflow: hidden; */
   /* border-radius: 10px; */
 
@@ -620,8 +632,9 @@
 
 /* Image */
 .card-image {
-  width: 295px;
-  height: 323px;
+  /* width: 295px; */
+  /* height: 323px; */
+  width: 100%;
   object-fit: cover;
   display: block;
 }
@@ -629,14 +642,19 @@
 /* Content (Overlapping Text) */
 .card-content {
   position: absolute;
-  width: 300px;
-  height: 150px;
-  top: 250px;
-  left: 20px;
+  /* width: 300px; */
+  /* height: 150px; */
+  width: 100%;
+  height: 150%;
+  /* top: 250px; */
+  /* left: 20px; */
+  top: 250%;
+  left: 10%;
   background-color: rgba(216,227,232,1);
   padding: 10px 15px;
   /* border-radius: 5px; */
   text-align: left;
+  box-sizing: border-box;
 }
 
 /* Title & Description */
@@ -653,6 +671,32 @@
   font-size: 0.9rem;
   color: #444;
 }
+@media (max-width: 768px) {
+  .card-content {
+    /* width: 110%; */
+    height: 200%;
+  }
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  .card-description{
+    font-size: 0.7rem;
+  }
+  .services-container{
+    padding: 10%;
+    padding-bottom: 35%;
+  }
+  
+  .services-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    column-gap: 20px; /* Space between columns */
+    row-gap: 160px;
+  }
+} 
+
 
 .mh-container {
   width: 100%;
@@ -932,49 +976,52 @@
   }
 }
 
-.contactPage-header h1{
-  font-family:  'Gowun Dodum', sans-serif;
-  font-size: 4rem;
+/* Base styles and desktop */
+.contactPage-header h1 {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 100;
-  margin-left: 20%;  
+  margin-left: 5%;
   margin-bottom: 2%;
   margin-top: 4%;
 }
-.contactPage-header p{
-  font-family:  'Gowun Dodum', sans-serif;
-  font-size: 1rem;
+
+.contactPage-header p {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 100;
-  margin-left: 20%;  
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-left: 5%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .contact-container {
   width: 90%;
-  margin: 0 auto;
-  padding: 2rem 10rem;
-  background-color: rgba(242,242,242,0.8);
+  margin: 4rem auto 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  background-color: rgba(242, 242, 242, 0.8);
   box-sizing: border-box;
-  margin-top: 4rem;
-
 }
 
 .contact-container h2 {
   text-align: left;
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: normal;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
 .contact-info {
   display: flex;
   justify-content: left;
-  gap: 10rem;
+  gap: clamp(2rem, 4vw, 10rem);
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .contact-info-group {
   text-align: left;
+  min-width: 200px;
+  flex: 1;
 }
 
 .contact-info-group label {
@@ -991,19 +1038,22 @@
 .contact-social-links {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .contact-form-row {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .contact-form-group {
   flex: 1;
   margin-bottom: 1rem;
+  min-width: 250px;
 }
 
 .contact-form-group label {
@@ -1017,8 +1067,9 @@
 .contact-form-group textarea {
   width: 100%;
   border: 2px solid #ccc;
-  padding: 0.5rem;
+  padding: 0.75rem;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 .contact-form-group textarea {
@@ -1034,9 +1085,9 @@
   padding: 0.75rem;
   background-color: #5f7d95;
   color: white;
-  /* border: none; */
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  border: 2px solid #5f7d95;
 }
 
 .contact-sendbutton:hover {
@@ -1044,15 +1095,83 @@
   color: #5f7d95;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+.success-message {
+  text-align: center;
+  color: #2d8a2d;
+  font-size: 1.2rem;
+  padding: 2rem;
+  background-color: rgba(45, 138, 45, 0.1);
+  border-radius: 4px;
+}
+
+/* Tablet breakpoint */
+@media screen and (max-width: 1024px) {
+  .contact-container {
+    width: 95%;
+    padding: 2rem;
+  }
+  
+  .contact-info {
+    gap: 4rem;
+  }
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 768px) {
+  .contactPage-header h1 {
+    margin-left: 1rem;
+    text-align: center;
+  }
+
+  .contactPage-header p {
+    margin-left: 1rem;
+    text-align: center;
+  }
+
+  .contact-container {
+    width: 100%;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
   .contact-info {
     flex-direction: column;
     gap: 2rem;
   }
 
+  .contact-info-group {
+    text-align: center;
+  }
+
+  .contact-social-links {
+    justify-content: center;
+  }
+
   .contact-form-row {
     flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form-group {
+    width: 100%;
+  }
+
+  .contact-sendbutton {
+    width: 100%;
+    max-width: none;
+    margin: 1rem 0;
+  }
+}
+
+/* Small mobile breakpoint */
+@media screen and (max-width: 480px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-form-group input,
+  .contact-form-group textarea {
+    padding: 0.5rem;
   }
 }
 
