@@ -878,6 +878,10 @@
   }
 }
 
+.servicePage-header{
+  box-sizing: border-box;
+  /* width: 80%; */
+}
 .servicePage-header h1{
   font-family:  'Gowun Dodum', sans-serif;
   font-size: 4rem;
@@ -891,6 +895,17 @@
   font-weight: 100;
   margin-left: 20%;  
   margin-top: 0px;
+}
+@media (max-width: 768px) {
+  .servicePage-header h1{
+    font-size: 2.5rem;
+    margin-left: 5%;
+  }
+  .servicePage-header p{
+    font-size: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 .quote-container {
