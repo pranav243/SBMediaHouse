@@ -674,14 +674,15 @@
 @media (max-width: 768px) {
   .card-content {
     /* width: 110%; */
-    height: 200%;
+    height: 160%;
   }
   .card-title {
-    font-size: 1rem;
-    margin-bottom: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1px;
   }
   .card-description{
     font-size: 0.7rem;
+    margin-bottom: 0px;
   }
   .services-container{
     padding: 10%;
@@ -974,6 +975,12 @@
   .input-wrapper {
     min-width: 100%;
   }
+  .quote-header h2{
+    font-size: 2rem;
+  }
+  .quote-header p{
+    font-size: 0.7rem;
+  }
 }
 
 /* Base styles and desktop */
@@ -1004,7 +1011,7 @@
 }
 
 .contact-container h2 {
-  text-align: left;
+  text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: normal;
   margin-bottom: clamp(2rem, 4vw, 4rem);
