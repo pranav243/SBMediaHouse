@@ -68,10 +68,11 @@
 /* Hamburger Button */
 .hamburger {
   display: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   background: none;
   border: none;
   cursor: pointer;
+  color: black;
 }
 
 /* Hide Menu on Small Screens */
@@ -107,77 +108,113 @@
 }
 
 
+/* Base styles */
 .main-info {
   width: 100%;
   background-image: url('/image.png');
   background-repeat: no-repeat;
-  /* background-size: 100%; */
   background-size: cover;
   background-position: center;
-  /* height: 535px; */
-  /* height: 520%; */
-  min-height: 60vh;
+  min-height: 100vh;
   display: flex;
   margin: 0;
+  padding: 1rem;
   align-items: center;
   justify-content: center;
-  align-content: center;
+  box-sizing: border-box;
   font-family: 'Gowun Dodum', sans-serif;
 }
 
 .infocard-container {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 5vw, 40px);
   text-align: center;
   background-color: white;
-  height: 70%;
+  /* border-radius: 8px; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .infocard-title {
-  margin-bottom: 24px;
-  /* font-family: 'Questrial', sans-serif; */
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .title-main {
   color: #2F2E2E;
-  margin-right: 10px;
   font-weight: bold;
   background: transparent;
 }
 
 .title-sub {
   color: #2F2E2E;
-  font-weight:lighter
+  font-weight: lighter;
 }
 
 .infocard-description {
-  /* font-family: 'Questrial', sans-serif; */
   color: #2F2E2E;
-  font-size: 1.1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
   text-align: center;
 }
 
 .learn-more-btn {
   background-color: #6E8098;
   color: white;
-  border: none;
-  padding: 12px 30px;
+  border: 1px solid transparent;
+  padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 30px);
   font-family: 'Questrial', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  /* border-radius: 4px; */
 }
 
 .learn-more-btn:hover {
   background-color: white;
   color: #6E8098;
-  border: 1px solid #6E8098;
+  border-color: #6E8098;
 }
 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  /* .infocard-container {
+    margin: 1rem;
+  } */
+  .main-info{
+    min-height: 0;
+  }
+  .infocard-container {
+    margin: 0;  /* Remove margin */
+    /* min-height: 100vh;  Full height */
+    border-radius: 0;  /* Remove border radius */
+    box-shadow: none;  /* Remove shadow */
+    display: flex;  /* Enable flex for better content centering */
+    flex-direction: column;  /* Stack children vertically */
+    justify-content: center;  /* Center content vertically */
+  }
+  .infocard-title {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-info {
+    padding: 0.5rem;
+  }
+  
+  .infocard-container {
+    padding: 1.5rem;
+  }
+}
 
 
 .about-intro-container {
@@ -208,7 +245,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: clamp(2rem, 20vw, 100rem);
+  /* align-items: left; */
+  padding-left: clamp(2rem, 12vw, 100rem);
   padding-top: 1rem;
   padding-bottom: 1rem;
   box-sizing: border-box;
@@ -577,6 +615,22 @@
   .carousel-button.next {
     right: 5px;
   }
+  .slide-title {
+    font-size: 1.5rem;
+    /* margin: 0 0 1rem 0; */
+    /* color: #333; */
+  }
+  
+  .slide-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #666;
+  }
+  .content{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 
@@ -593,6 +647,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box; /* Prevents padding from adding extra width */
+  min-height: fit-content;
 
 }
 
@@ -607,7 +662,7 @@
 .services-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
   column-gap: 20px; /* Space between columns */
   row-gap: 160px;
 }
@@ -646,6 +701,8 @@
   /* height: 150px; */
   width: 100%;
   height: 150%;
+  min-height: fit-content;
+  max-height: fit-content;
   /* top: 250px; */
   /* left: 20px; */
   top: 250%;
@@ -660,22 +717,24 @@
 /* Title & Description */
 .card-title {
   font-family: 'Gowun Dodum', sans-serif;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 1em;
   /* font-weight: bold; */
   font-weight: normal;
-  margin-bottom: 5px;
+  margin-bottom: 0.3em;
 }
 
 .card-description {
   font-family: 'Gowun Dodum', sans-serif;
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
+  font-size: 0.8em;
   color: #444;
+  margin-top: 0px;
 }
 @media (max-width: 768px) {
-  .card-content {
-    /* width: 110%; */
+  /* .card-content {
     height: 160%;
-  }
+  } */
   .card-title {
     font-size: 0.9rem;
     margin-bottom: 1px;
